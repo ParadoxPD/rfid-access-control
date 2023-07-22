@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account Creation</title>
+    <style>
+        body {
+            align-items: center;
+            background-color: #1F2739;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form {
+            background-color: #15172b;
+            border-radius: 20px;
+            box-sizing: border-box;
+            padding: 20px;
+            width: 320px;
+        }
+
+        .title {
+            color: #eee;
+            font-family: "Open Sans", sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 0;
+        }
+
+        .subtitle {
+            color: #eee;
+            font-family: "Open Sans", sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .ic1 {
+            margin-top: 30px;
+        }
+
+        .ic2 {
+            margin-top: 20px;
+        }
+
+        .input {
+            background-color: #303245;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            font-size: 18px;
+            height: 50px;
+            outline: 0;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .input:focus {
+            border-color: #dc2f55;
+        }
+
+        .submit {
+            background-color: #08d;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            cursor: pointer;
+            font-size: 18px;
+            height: 50px;
+            margin-top: 30px;
+            outline: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .submit:active {
+            background-color: #06b;
+        }
+
+        .error {
+            color: #dc2f55;
+            font-family: "Open Sans", sans-serif;
+            font-size: 12px;
+            margin-top: 4px;
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="title">Hey there!</div>
+            <div class="subtitle">Fill your details to access.</div>
+            <div class="input-container ic1">
+                <input id="name" class="input" type="text" placeholder="Name" />
+                <div class="error" id="name-error"></div>
+            </div>
+            <div class="input-container ic2">
+                <input id="access-id" class="input" type="text" placeholder="Access ID" />
+                <div class="error" id="access-id-error"></div>
+            </div>
+            <div class="input-container ic2">
+                <input id="password" class="input" type="password" placeholder="Master Password" />
+                <div class="error" id="password-error"></div>
+            </div>
+            <button type="button" class="submit" onclick="submitForm()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value.trim();
+            var accessId = document.getElementById('access-id').value.trim();
+            var password = document.getElementById('password').value.trim();
+
+            var nameError = document.getElementById('name-error');
+            var accessIdError = document.getElementById('access-id-error');
+            var passwordError = document.getElementById('password-error');
+
+            nameError.innerText = '';
+            accessIdError.innerText = '';
+            passwordError.innerText = '';
+
+            if (name === '') {
+                nameError.innerText = 'Please enter your name';
+            }
+
+            if (accessId === '') {
+                accessIdError.innerText = 'Please enter your access ID';
+            }
+
+            if (password === '') {
+                passwordError.innerText = 'Please enter your master password';
+            }
+
+            if (name !== '' && accessId !== '' && password !== '') {
+                var confirmed = confirm('Are you sure you want to submit the form?');
+                if (confirmed) {
+                    document.getElementById('name').value = '';
+                    document.getElementById('access-id').value = '';
+                    document.getElementById('password').value = '';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

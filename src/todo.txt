@@ -1,0 +1,24 @@
+
+
+
+
+Webpage :
+
+    table :
+        sl no
+        name
+        access keys
+
+    Delete from table
+
+    Enter the keys from website
+
+    Edit (optional)
+
+Board :
+
+    RTc integration:
+
+        logging facility - Log activity - get date , time and key activity
+
+    gpio changes when access granted
